@@ -1,0 +1,17 @@
+<div class="title-card">
+  <h1><%= @flat.name %></h1>
+  <h4><%= @flat.address %></h4>
+</div>
+
+<div class="info-card">
+  <h2>A bit more about this flat...</h2>
+  <p><%= @flat.description %></p>
+</div>
+
+<div class="details-card">
+  <h2>Details</h2>
+  <div class="flex">
+    <%= @flat.number_of_guests %>
+    <%= @flat.price_per_night %>
+  </div>
+</div>

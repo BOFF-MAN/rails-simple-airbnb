@@ -1,0 +1,12 @@
+<div class="form-container">
+  <h2>Add </h2>
+  <%= simple_form_for @flat do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :number_of_guests, collection: 1..20 %>
+    <%= f.input :price_per_night, placeholder: "£" %>
+    <%= f.input :image_url %>
+    <%= f.submit "Add Flat" %>
+  <% end %>
+</div>

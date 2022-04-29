@@ -1,0 +1,38 @@
+<div class="nav-bar">
+  <h3><%= link_to "Simple Airbnb", flats_path %></h3>
+  <%# <%= simple_form_for @ %>
+  <div class="flex">
+    <%= form_tag search_flats_path do %>
+      <input type=”text” name=search>
+      <button>Search</button>
+    <% end %>
+    <%= link_to 'Add Flat', new_flat_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<h1>Our Flats</h1>
+
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-md-4">
+      <div class="flat-card p-4">
+        <div class="flat-card-image">
+          <img src=<%= flat.image_url%> alt="">
+        </div>
+        <div class="flat-card-content">
+          <h3><%= flat.name %></h3>
+          <p><%= flat.address %></p>
+          <div class="flex">
+            <%= flat.number_of_guests %>
+            <%= flat.price_per_night %>
+          </div>
+        </div>
+        <div class="flat-card-actions">
+          <%= link_to "More info", flat_path(flat) %>
+          <%= link_to "Edit", edit_flat_path(flat) %>
+          <%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
